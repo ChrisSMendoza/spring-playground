@@ -5,6 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+    <h2 th:text="${capsule.getCapsule_serial()}"></h2>
+    <h3 th:text="${capsule.getCapsule_id()}"></h3>
+    
+    <h4>Missions</h4>
+    <div th:each="mission : ${capsule.getMissions()}">
+        <p th:text="${mission.getName()}"/>
+    </div>
 </body>
 </html>
