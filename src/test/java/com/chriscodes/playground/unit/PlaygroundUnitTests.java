@@ -1,4 +1,4 @@
-package com.chriscodes.playground;
+package com.chriscodes.playground.unit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PlaygroundApplicationTests {
+public class PlaygroundUnitTests {
 
 	@Test
 	public void successTest() {
