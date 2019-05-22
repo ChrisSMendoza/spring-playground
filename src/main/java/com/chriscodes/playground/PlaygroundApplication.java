@@ -8,9 +8,8 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class PlaygroundApplication {
-
-    // used in application and during testing
-    @Bean
+    
+    @Bean // same instance needed in app and testing
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }

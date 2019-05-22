@@ -6,26 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 import com.chriscodes.playground.POJO.Capsule;
+import com.chriscodes.playground.services.SpaceXService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class HomeController {
     
     @Autowired
-    private RestTemplate restTemplate;
+    private SpaceXService spaceXService;
     
     @GetMapping("/home")
     public String getHomepage(Model model) {
-
-//        RestTemplate restTemplate = new RestTemplate();
-        final String singleCapsuleUrl = "https://api.spacexdata.com/v3/capsules/{capsule_serial}";
-        String capsuleID = "C112";
         
-        Capsule capsule = restTemplate.getForObject(singleCapsuleUrl, Capsule.class, capsuleID);
-
-        System.err.println(capsule);
-        
-        model.addAttribute("capsule", capsule);
+        String capsuleSerial = "C112";        
+        Capsule fetchedCapsule = spaceXService.getCapsuleById(capsuleSerial);
+                        
+        model.addAttribute("capsule", fetchedCapsule);
         return "home";
     }
 
